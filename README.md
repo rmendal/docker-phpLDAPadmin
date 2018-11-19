@@ -27,7 +27,7 @@ Latest release: 0.1.0 - phpLDAPadmin 1.2.3 (with php7.2 patch) - [Changelog](CHA
     - [Make your own phpLDAPadmin image](#make-your-own-phpldapadmin-image)
     - [Tests](#tests)
     - [Kubernetes](#kubernetes)
-    - [Under the hood: osixia/web-baseimage](#under-the-hood-osixiaweb-baseimage)
+    - [Under the hood: rmendal/docker-light-baseimage](#under-the-hood-osixiaweb-baseimage)
   - [Security](#security)
   - [Changelog](#changelog)
 
