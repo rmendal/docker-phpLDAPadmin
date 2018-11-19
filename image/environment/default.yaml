@@ -1,5 +1,5 @@
 # Apache
-PHPLDAPADMIN_SERVER_ADMIN: webmaster@example.org
+PHPLDAPADMIN_SERVER_ADMIN: admin@example.org
 PHPLDAPADMIN_SERVER_PATH: /phpldapadmin
 
 # Self signed certificat will be generated

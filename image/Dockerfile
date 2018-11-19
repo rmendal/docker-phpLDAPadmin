@@ -1,4 +1,4 @@
-FROM osixia/web-baseimage:1.1.1
+FROM rmendal/bionic-light:latest
 
 # phpLDAPadmin version
 ARG PHPLDAPADMIN_VERSION=1.2.3
@@ -15,14 +15,14 @@ ARG PHPLDAPADMIN_SHA1=669fca66c75e24137e106fdd02e3832f81146e23
 # Remove curl
 RUN apt-get update \
 	&& /container/tool/add-multiple-process-stack \
-	&& /container/tool/add-service-available :apache2 :php7.0-fpm :ssl-tools \
+	&& /container/tool/add-service-available :apache2 :ssl-tools :php7.2-fpm \
 	&& LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	ca-certificates \
 	curl \
 	patch \
-	php7.0-ldap \
-	php7.0-readline \
-	php7.0-xml \
+	php7.2-ldap \
+	php7.2-readline \
+	php7.2-xml \
 	&& curl -o phpldapadmin.tgz -SL https://downloads.sourceforge.net/project/phpldapadmin/phpldapadmin-php5/${PHPLDAPADMIN_VERSION}/phpldapadmin-${PHPLDAPADMIN_VERSION}.tgz \
 	&& echo "$PHPLDAPADMIN_SHA1 *phpldapadmin.tgz" | sha1sum -c - \
 	&& mkdir -p /var/www/phpldapadmin_bootstrap /var/www/phpldapadmin \
