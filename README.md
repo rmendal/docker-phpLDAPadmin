@@ -297,7 +297,9 @@ A kubernetes example is available in **example/kubernetes**
 ### Under the hood: rmendal/web-baseimage
 
 This image is based on osixia/docker-light-baseimage Ubuntu branch.
-More info: https://github.com/rmendal/docker-light-baseimage/tree/ubuntu and https://github.com/osixia/docker-light-baseimage/tree/ubuntu
+More information: 
+- https://github.com/rmendal/docker-light-baseimage/tree/ubuntu
+- https://github.com/osixia/docker-light-baseimage/tree/ubuntu
 
 ## Security
 If you discover a security vulnerability within this docker image please add an issue here on github.
