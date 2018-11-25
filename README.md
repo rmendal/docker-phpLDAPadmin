@@ -1,6 +1,7 @@
 # rmendal/phpldapadmin
 
 [![](https://images.microbadger.com/badges/version/rmendal/phpldapadmin.svg)](https://microbadger.com/images/rmendal/phpldapadmin "Get your own version badge on microbadger.com")
+
 [![](https://images.microbadger.com/badges/image/rmendal/phpldapadmin.svg)](https://microbadger.com/images/rmendal/phpldapadmin "Get your own image badge on microbadger.com")
 
 This project was forked from [Osixia base light image (Ubuntu branch)](https://github.com/osixia/docker-light-baseimage/tree/ubuntu "Osixia base light image (Ubuntu branch)") and [Osixia phpldapadmin](https://github.com/osixia/docker-phpLDAPadmin "Osixia phpldapadmin"). The Ubuntu base light image branch was updated to use the official [ubuntu bionic](https://hub.docker.com/r/_/ubuntu/ "ubuntu:bionic") docker image. The services that Osixia built are included and in the case of the php7.0-fpm service, it's been updated to php 7.2 and issues pertaining to depreciation have been fixed.
