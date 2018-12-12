@@ -19,6 +19,7 @@ RUN apt-get update \
 	&& LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	ca-certificates \
 	curl \
+	netcat-openbsd \
 	patch \
 	php7.2-ldap \
 	php7.2-readline \
