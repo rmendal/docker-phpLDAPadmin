@@ -14,24 +14,27 @@ ARG PHPLDAPADMIN_SHA1=669fca66c75e24137e106fdd02e3832f81146e23
 # Download phpLDAPadmin, check file integrity, and unzip phpLDAPadmin to /var/www/phpldapadmin_bootstrap
 # Remove curl
 RUN apt-get update \
-	&& /container/tool/add-multiple-process-stack \
-	&& /container/tool/add-service-available :apache2 :ssl-tools :php7.2-fpm \
-	&& LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-	ca-certificates \
-	curl \
-	netcat-openbsd \
-	patch \
-	php7.2-ldap \
-	php7.2-readline \
-	php7.2-xml \
-	&& curl -o phpldapadmin.tgz -SL https://downloads.sourceforge.net/project/phpldapadmin/phpldapadmin-php5/${PHPLDAPADMIN_VERSION}/phpldapadmin-${PHPLDAPADMIN_VERSION}.tgz \
-	&& echo "$PHPLDAPADMIN_SHA1 *phpldapadmin.tgz" | sha1sum -c - \
-	&& mkdir -p /var/www/phpldapadmin_bootstrap /var/www/phpldapadmin \
-	&& tar -xzf phpldapadmin.tgz --strip 1 -C /var/www/phpldapadmin_bootstrap \
-	&& apt-get remove -y --purge --auto-remove curl ca-certificates \
-	&& rm phpldapadmin.tgz \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        && /container/tool/add-multiple-process-stack \
+        && /container/tool/add-service-available :apache2 :ssl-tools :php7.2-fpm \
+        && LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        netcat-openbsd \
+        patch \
+        php7.2-ldap \
+        php7.2-readline \
+        php7.2-xml \
+        && curl -o phpldapadmin.tgz -SL https://downloads.sourceforge.net/project/phpldapadmin/phpldapadmin-php5/${PHPLDAPADMIN_VERSION}/phpldapadmin-${PHPLDAPADMIN_VERSION}.tgz \
+        && echo "$PHPLDAPADMIN_SHA1 *phpldapadmin.tgz" | sha1sum -c - \
+        && mkdir -p /var/www/phpldapadmin_bootstrap /var/www/phpldapadmin \
+        && tar -xzf phpldapadmin.tgz --strip 1 -C /var/www/phpldapadmin_bootstrap \
+        && apt-get remove -y --purge --auto-remove curl ca-certificates \
+        && rm /var/www/phpldapadmin_bootstrap/templates/creation/courierMailAccount.xml \
+        && rm /var/www/phpldapadmin_bootstrap/templates/creation/mozillaOrgPerson.xml \
+        && rm /var/www/phpldapadmin_bootstrap/templates/creation/courierMailAlias.xml \
+        && rm phpldapadmin.tgz \
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add service directory to /container/service
 ADD service /container/service

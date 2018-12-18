@@ -20,9 +20,5 @@ a2enmod deflate expires
 # delete unnecessary files
 rm -rf /var/www/phpldapadmin_bootstrap/doc
 
-# apply php5.5 patch
-patch -p1 -d /var/www/phpldapadmin_bootstrap < /container/service/phpldapadmin/assets/php5.5.patch
-sed -i "s/password_hash/password_hash_custom/g" /var/www/phpldapadmin_bootstrap/lib/TemplateRender.php
-
-# fix functions.php for php7.2
-cp -f /container/service/phpldapadmin/assets/functions_fix.php /var/www/phpldapadmin_bootstrap/lib/functions.php
+# Copy folder of lib files that are php 7.2 ready
+cp -f --target-directory=/var/www/phpldapadmin_bootstrap/lib/ /container/service/phpldapadmin/assets/lib_fix/*
